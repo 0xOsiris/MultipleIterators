@@ -7,6 +7,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Iterator;
 
 public class TextFileReader implements Iterator<Pair<String,String>> {
@@ -16,8 +17,15 @@ public class TextFileReader implements Iterator<Pair<String,String>> {
 		public TextFileReader(String folderPath) {
 			File folder = new File(folderPath);
 			this.files = folder.listFiles();
-			Arrays.sort(this.files); // sort lexicographically so output is deterministic
+			Arrays.sort(this.files, new LexComparator()); // sort lexicographically so output is deterministic
 			this.curFile = 0;
+		}
+		private static class LexComparator implements Comparator<File> {
+				@Override
+				public int compare(File o1, File o2) {
+						return o1.getName().compareTo(o2.getName());
+				}
+				
 		}
 		
 		@Override
