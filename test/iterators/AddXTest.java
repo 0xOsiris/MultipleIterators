@@ -34,9 +34,8 @@ public class AddXTest {
 		
 		@Test
 		public void moreTest() {
-			Integer[] inputValues = {10,50,1,400};
+			Integer[] inputValues = {10,50,2,400};
 			List<Integer> input = Arrays.asList(inputValues);
-			//Apply<Integer,Integer> op = new Apply<>(new TimesTwo(), input.iterator());
                         AddX op = new AddX(10, input.iterator());
 
 			assertEquals(true, op.hasNext());
