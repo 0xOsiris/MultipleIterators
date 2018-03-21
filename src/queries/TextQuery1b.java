@@ -23,6 +23,11 @@ public class TextQuery1b {
 	//   Its apply function should take a String
 	//   and return only the 12th word as a String (where words are defined as separated by a " ")
 	private static class TwelfthWord implements ApplyFunction<String,String> {
+            public String apply(String x){
+                String[] split = x.split(" ");
+                return split[11];
+                
+        }
 	}
 
 	private static class TakeRight<L,R> implements ApplyFunction<Pair<L,R>, R> {

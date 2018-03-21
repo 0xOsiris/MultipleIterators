@@ -11,13 +11,22 @@ public class IntApply implements Iterator {
 		private final Iterator<Integer> input;		
 
 		public IntApply(IntApplyFunction f, Iterator<Integer> input) {
+                    this.input = input;
+                    this.f = f;
 		}
 
 		@Override
 		public boolean hasNext() {
+                    return input.hasNext();
 		}
 
 		@Override
 		public Integer next() {
+                    
+                    if (!hasNext()) throw new IllegalStateException();
+                    
+                    return f.apply(input.next());
+                    
+                    
 		}
 }

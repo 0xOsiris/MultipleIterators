@@ -11,13 +11,17 @@ public class Apply<InT,OutT> implements Iterator<OutT> {
 		private final Iterator<InT> input;		
 
 		public Apply(ApplyFunction<InT, OutT> f, Iterator<InT> input) {
+                    this.input = input;
+                    this.f =f;
 		}
 
 		@Override
 		public boolean hasNext() {
+                    return input.hasNext();
 		}
 
 		@Override
 		public OutT next() {
+                    return f.apply(input.next());
 		}
 }

@@ -11,6 +11,7 @@ public class Reduce<InT,OutT> implements Iterator<OutT> {
 
 		@Override
 		public boolean hasNext() {
+                    return
 		}
 
 		@Override
