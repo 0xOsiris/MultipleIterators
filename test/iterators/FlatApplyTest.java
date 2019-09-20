@@ -79,6 +79,7 @@ public class FlatApplyTest {
 			assertEquals(true, op.hasNext());
 			assertEquals("400", op.next());
 			assertEquals(false, op.hasNext());
+                        
 		}
 
 		// Returns two copies of the input

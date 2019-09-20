@@ -18,12 +18,16 @@ public class FlightsQuery {
 			Iterator<String> lines = new LineFileReader("../flights-tiny.csv"); // expects answer: 5
 			Iterator<Object[]> recordsGeneric = new Apply<>(new ParseCSVLine(), lines);
 			Iterator<FlightRecord> records = new Apply<>(new ConvertToRecord(), recordsGeneric);
+                        
 
             // add more iterators to complete the query
-
-			while (/*lastIterator*/.hasNext()) {
-				System.out.println(/*lastIterator*/.next());
+                        int count=0;
+			while (records.hasNext()) {
+				if(records.next().year==2015){
+                                    count+=1;
+                                }
 			}
+                        System.out.println(count);
 		}
 
         // define classes you will need for the query here
@@ -50,12 +54,14 @@ public class FlightsQuery {
 						this.destCity = destCity;
 						this.cancelled = cancelled;
 						this.time = time;
+                                                
 				}
 
 				@Override
 				public String toString() {
 						return "FlightRecord{" + "year=" + year + ", month=" + month + ", dayOfMonth=" + dayOfMonth + ", airline=" + airline + ", flightNumber=" + flightNumber + ", originCity=" + originCity + ", destCity=" + destCity + ", cancelled=" + cancelled + ", time=" + time + '}';
 				}
+                                
 		}
 
 		// Converts a CSV record from an Object[] to a FlightRecord
@@ -84,6 +90,7 @@ public class FlightsQuery {
         //
 		// "10,cat,dog,22"
 		// [10, "cat", "dog", 22]
+                
 		private static class ParseCSVLine implements ApplyFunction<String, Object[]> {
 
 				@Override

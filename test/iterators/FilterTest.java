@@ -10,6 +10,7 @@ public class FilterTest {
 		
 		public FilterTest() {
 		}
+               
 
 		@Test
 		public void emptyTest() {
@@ -23,10 +24,11 @@ public class FilterTest {
 
 		@Test
 		public void oneRemovedTest() {
-			Integer[] inputValues = {0};
+			Integer[] inputValues = {0,1};
 			List<Integer> input = Arrays.asList(inputValues);
 			Filter<Integer> op = new Filter<>(new IsNotZero(), input.iterator());
-
+                        assertEquals(true, op.hasNext());
+                        op.next();
 			assertEquals(false, op.hasNext());
 			assertEquals(false, op.hasNext());
 		}

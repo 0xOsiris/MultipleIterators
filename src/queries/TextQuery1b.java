@@ -24,8 +24,8 @@ public class TextQuery1b {
 	//   and return only the 12th word as a String (where words are defined as separated by a " ")
 	private static class TwelfthWord implements ApplyFunction<String,String> {
             public String apply(String x){
-                String[] split = x.split(" ");
-                return split[11];
+                String[] splitt = x.split(" ");
+                return splitt[11];
                 
         }
 	}

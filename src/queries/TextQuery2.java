@@ -6,6 +6,7 @@ import iterators.ApplyFunction;
 import iterators.FlatApply;
 import iterators.FlatApplyFunction;
 import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -36,6 +37,24 @@ public class TextQuery2 {
 	//        apply("CS2230") returns "CS2230"
 	//        apply("I love CS2230") returns "I love CS2230"
 	public static class LongerThan implements FlatApplyFunction<String,String> {
+            private int x;
+            
+            
+            public LongerThan(int len){
+                this.x = len;
+                
+            }
+            
+            @Override
+            public List<String> apply(String y){
+                List<String> l= new LinkedList<>();
+                if(y.length()>x){
+                    
+                    return Arrays.asList(y);
+                }else{
+                    return l;
+                }
+            }
 	}
 	
 

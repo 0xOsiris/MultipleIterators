@@ -12,6 +12,7 @@ import iterators.ReduceFunction;
 import readers.TextFileReader;
 import java.util.Arrays;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 
 // Return the number total occurences of the word "Mars"
@@ -20,12 +21,16 @@ public class TextQuery4 {
 		Iterator<Pair<String,String>> filenameAndContents = new TextFileReader("../sci.space");
 		Iterator<String> contents = new Apply(new TakeRight<>(), filenameAndContents);
 		Iterator<String> words = new FlatApply(new SplitBy(" "), contents); 
-
+                Iterator<String> filter = new FlatApply(new flatCheck(), contents);
+                
         /* finish the query */
-
-		while (/*lastIterator*/.hasNext()) {
-			System.out.println(/*lastIterator*/.next());
+                int count=0;
+                
+		while (filter.hasNext()) {
+			count+=1;
 		}
+                
+                System.out.println(count);
 	}	
 
     /* Define the additional classes you need here */ 
@@ -49,4 +54,16 @@ public class TextQuery4 {
 			return Arrays.asList(x.split(ch));
 		}
 	}
+        
+        public static class flatCheck implements FlatApplyFunction<String, String> {
+	
+				@Override
+				public List<String> apply(String x) {
+					List<String> l = new LinkedList<>();
+					if (x.equals("Mars")) {
+						l.add(x.toString());
+					}
+					return l;
+				}
+		}
 }
