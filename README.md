@@ -1,8 +1,8 @@
 # MultipleIterators
 Core Java Implementation of a broad range of functional iterators with comprehensive tests
 
-
- ___                                                                  _
+```
+___                                                                  _
 /__/|__                                                            __//|
 |__|/_/|__                                                       _/_|_||
 |_|___|/_/|__                                                 __/_|___||
@@ -12,3 +12,4 @@ Core Java Implementation of a broad range of functional iterators with comprehen
 |_|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___||
 |___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|_||
 |_|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|/
+```
